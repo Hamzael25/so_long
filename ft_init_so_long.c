@@ -94,6 +94,7 @@ void	ft_initial(t_mlx *m)
 	m->count.c = 0;
 	m->y = 0;
 	m->i = 0;
+	m->move = 0;
 	m->move_left = 0;
 	m->move_right = 0;
 	m->move_low = 0;
