@@ -6,7 +6,7 @@
 /*   By: hel-ouar <hel-ouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 21:12:25 by hel-ouar          #+#    #+#             */
-/*   Updated: 2023/01/09 16:58:10 by hel-ouar         ###   ########.fr       */
+/*   Updated: 2023/01/09 18:39:32 by hel-ouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_mlx(t_mlx *m)
 	if (m->hauteur * 50 <= 1550 && m->largeur * 50 <= 2850)
 	{
 		m->mlx_win = mlx_new_window(m->mlx, m->largeur * 50, \
-		m->hauteur * 50, "Hello world!");
+		m->hauteur * 50, "Bienvenue dans mon jeu incroyable");
 		mlx_loop_hook(m->mlx, ft_loop_hook, m);
 		mlx_hook(m->mlx_win, 2, 0, ft_keypress, m);
 		mlx_hook(m->mlx_win, 3, 0, ft_release, m);
