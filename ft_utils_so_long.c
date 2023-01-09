@@ -6,7 +6,7 @@
 /*   By: hel-ouar <hel-ouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 10:33:00 by hel-ouar          #+#    #+#             */
-/*   Updated: 2023/01/05 14:06:03 by hel-ouar         ###   ########.fr       */
+/*   Updated: 2023/01/09 15:55:37 by hel-ouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,6 @@ int	ft_keypress(int keycode, t_mlx *m)
 		ft_free_tab(m->split);
 		exit(0);
 	}
-	// if (keycode == 0 || keycode == 1 || keycode == 2 || keycode == 13)
-	// {
-	// 	m->move_left = 0;
-	// 	m->move_right = 0;
-	// 	m->move_low = 0;
-	// 	m->move_up = 0;
-	// }
 	if (keycode == 0)
 			m->move_left = 1;
 	if (keycode == 2)
@@ -41,14 +34,6 @@ int	ft_keypress(int keycode, t_mlx *m)
 			m->move_low = 1;
 	if (keycode == 13)
 			m->move_up = 1;
-	// if (m->move_left == 1 && m->move_right == 1)
-	// {
-	// 	ft_release(0, m);
-	// }
-	// if (m->move_up == 1 && m->move_low == 1)
-	// {
-	// 	ft_release(13, m);
-	// }
 	return (0);
 }
 

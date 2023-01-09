@@ -6,7 +6,7 @@
 /*   By: hel-ouar <hel-ouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 12:45:52 by hel-ouar          #+#    #+#             */
-/*   Updated: 2023/01/05 14:06:26 by hel-ouar         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:02:36 by hel-ouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct s_mlx
 	int		hauteur;
 	int		largeur;
 	char	*affich_move;
+	int		bool;
 }				t_mlx;
 
 char	*get_map_so_long(int fd);
@@ -117,31 +118,31 @@ int		render_next_frame(t_mlx *m);
 
 int		ft_exit(t_mlx *m);
 
-void	ft_do_move1(t_mlx *m);
+int		ft_do_move1(t_mlx *m);
 
-void	ft_do_move2(t_mlx *m);
+int		ft_do_move2(t_mlx *m);
 
-int	ft_do_move3(t_mlx *m);
+int		ft_do_move3(t_mlx *m);
 
-int	ft_do_move4(t_mlx *m);
+int		ft_do_move4(t_mlx *m);
 
-void	ft_do_move5(t_mlx *m);
+int		ft_do_move5(t_mlx *m);
 
-int	ft_do_move6(t_mlx *m);
+int		ft_do_move6(t_mlx *m);
 
-int	ft_do_move7(t_mlx *m);
+int		ft_do_move7(t_mlx *m);
 
-int	ft_do_move8(t_mlx *m);
+int		ft_do_move8(t_mlx *m);
 
-int	ft_do_move9(t_mlx *m);
+int		ft_do_move9(t_mlx *m);
 
-void	ft_do_move10(t_mlx *m);
+int		ft_do_move10(t_mlx *m);
 
-int	ft_do_move11(t_mlx *m);
+int		ft_do_move11(t_mlx *m);
 
-int	ft_do_move12(t_mlx *m);
+int		ft_do_move12(t_mlx *m);
 
-void	ft_do_move13(t_mlx *m);
+int		ft_do_move13(t_mlx *m);
 
 void	ft_anim_left(t_mlx *m);
 
@@ -174,5 +175,51 @@ void	move_low_and_blocked_right(t_mlx *m);
 void	move_up_and_blocked_left(t_mlx *m);
 
 void	move_low_and_blocked_left(t_mlx *m);
+
+void	ft_move_right(t_mlx *m);
+
+void	ft_move_left(t_mlx *m);
+
+void	ft_move_up(t_mlx *m);
+
+void	ft_move_low(t_mlx *m);
+
+int		ft_do_double_move1(t_mlx *m);
+
+int		ft_do_double_move2(t_mlx *m);
+
+int		ft_do_double_move3(t_mlx *m);
+
+int		ft_do_double_move4(t_mlx *m);
+
+int		ft_do_double_move5(t_mlx *m);
+
+int		ft_do_double_move6(t_mlx *m);
+
+int		ft_do_double_move7(t_mlx *m);
+
+int		ft_do_double_move8(t_mlx *m);
+
+int		ft_do_double_move9(t_mlx *m);
+
+int		ft_do_double_move10(t_mlx *m);
+
+int		ft_do_double_move11(t_mlx *m);
+
+int		ft_do_double_move12(t_mlx *m);
+
+int		ft_do_double_move13(t_mlx *m);
+
+void	ft_move_up_right(t_mlx *m);
+
+void	ft_move_up_left(t_mlx *m);
+
+void	ft_move_low_right(t_mlx *m);
+
+void	ft_move_low_left(t_mlx *m);
+
+void	ft_do_double_check_right(t_mlx *m);
+
+void	ft_do_double_check_left(t_mlx *m);
 
 #endif

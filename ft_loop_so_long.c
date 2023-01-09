@@ -6,7 +6,7 @@
 /*   By: hel-ouar <hel-ouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 21:12:25 by hel-ouar          #+#    #+#             */
-/*   Updated: 2023/01/05 14:05:41 by hel-ouar         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:58:10 by hel-ouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,51 +23,6 @@ int	ft_release(int keycode, t_mlx *m)
 	if (keycode == 13)
 		m->move_up = 0;
 	return (0);
-}
-
-void	ft_do_check(t_mlx *m)
-{
-	int bool;
-	if (m->move_left == 1)
-	{	
-		bool = ft_check_move(m);
-		if (m->move_low == 1 || m->move_up == 1)
-		{
-			if (bool == 4)
-				move_up_and_blocked_left(m);
-			else if (bool == 5)
-				move_low_and_blocked_left(m);
-			else
-				ft_anim_ul_and_left(m);
-		}
-		else
-			ft_anim_left(m);
-	}
-	else if (m->move_right == 1)
-	{
-		bool = ft_check_move(m);
-		if (m->move_low == 1 || m->move_up == 1)
-		{
-			if (bool == 2)
-				move_up_and_blocked_right(m);
-			else if (bool == 3)
-				move_low_and_blocked_right(m);
-			else
-				ft_anim_ul_and_right(m);
-		}
-		else
-			ft_anim_right(m);
-	}
-	else if (m->move_low == 1)
-	{
-		bool = ft_check_move(m);
-		ft_anim_down(m);
-	}
-	else if (m->move_up == 1)
-	{
-		bool = ft_check_move(m);
-		ft_anim_up(m);
-	}
 }
 
 int	ft_loop_hook(t_mlx *m)
