@@ -26,21 +26,29 @@ int	ft_keypress(int keycode, t_mlx *m)
 		ft_free_tab(m->split);
 		exit(0);
 	}
-	if (keycode == 0 || keycode == 1 || keycode == 2 || keycode == 13)
-	{
-		m->move_left = 0;
-		m->move_right = 0;
-		m->move_low = 0;
-		m->move_up = 0;
-	}
+	// if (keycode == 0 || keycode == 1 || keycode == 2 || keycode == 13)
+	// {
+	// 	m->move_left = 0;
+	// 	m->move_right = 0;
+	// 	m->move_low = 0;
+	// 	m->move_up = 0;
+	// }
 	if (keycode == 0)
-		m->move_left = 1;
-	else if (keycode == 2)
-		m->move_right = 1;
-	else if (keycode == 1)
-		m->move_low = 1;
-	else if (keycode == 13)
-		m->move_up = 1;
+			m->move_left = 1;
+	if (keycode == 2)
+			m->move_right = 1;
+	if (keycode == 1)
+			m->move_low = 1;
+	if (keycode == 13)
+			m->move_up = 1;
+	// if (m->move_left == 1 && m->move_right == 1)
+	// {
+	// 	ft_release(0, m);
+	// }
+	// if (m->move_up == 1 && m->move_low == 1)
+	// {
+	// 	ft_release(13, m);
+	// }
 	return (0);
 }
 

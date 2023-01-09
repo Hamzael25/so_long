@@ -14,34 +14,58 @@
 
 int	ft_release(int keycode, t_mlx *m)
 {
-	(void)keycode;
-	m->move_left = 0;
-	m->move_right = 0;
-	m->move_low = 0;
-	m->move_up = 0;
+	if (keycode == 0)
+		m->move_left = 0;
+	if (keycode == 2)
+		m->move_right = 0;
+	if (keycode == 1)
+		m->move_low = 0;
+	if (keycode == 13)
+		m->move_up = 0;
 	return (0);
 }
 
 void	ft_do_check(t_mlx *m)
 {
+	int bool;
 	if (m->move_left == 1)
 	{	
-		ft_check_move(m);
-		ft_anim_left(m);
+		bool = ft_check_move(m);
+		if (m->move_low == 1 || m->move_up == 1)
+		{
+			if (bool == 4)
+				move_up_and_blocked_left(m);
+			else if (bool == 5)
+				move_low_and_blocked_left(m);
+			else
+				ft_anim_ul_and_left(m);
+		}
+		else
+			ft_anim_left(m);
 	}
 	else if (m->move_right == 1)
 	{
-		ft_check_move(m);
-		ft_anim_right(m);
+		bool = ft_check_move(m);
+		if (m->move_low == 1 || m->move_up == 1)
+		{
+			if (bool == 2)
+				move_up_and_blocked_right(m);
+			else if (bool == 3)
+				move_low_and_blocked_right(m);
+			else
+				ft_anim_ul_and_right(m);
+		}
+		else
+			ft_anim_right(m);
 	}
 	else if (m->move_low == 1)
 	{
-		ft_check_move(m);
+		bool = ft_check_move(m);
 		ft_anim_down(m);
 	}
 	else if (m->move_up == 1)
 	{
-		ft_check_move(m);
+		bool = ft_check_move(m);
 		ft_anim_up(m);
 	}
 }
@@ -50,8 +74,8 @@ int	ft_loop_hook(t_mlx *m)
 {
 	if (m->count.c == m->count.cpt && ft_eat_box_exit(m) == 1)
 		return (0);
-	ft_eat_box(m);
 	ft_do_check(m);
+	ft_eat_box(m);
 	render_next_frame(m);
 	return (0);
 }

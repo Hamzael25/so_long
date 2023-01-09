@@ -12,147 +12,365 @@
 
 #include "so_long.h"
 
-void	ft_do_move6(t_mlx *m)
+int	ft_do_move6(t_mlx *m)
 {
-	if (m->move_left == 1 \
-		&& m->split[(m->py / 50) + 1][(m->px / 50)] != '1')
+	if (m->move_up == 1 && m->move_left == 1 && m->split[(m->py / 50) + 1][(m->px / 50)] != '1')
 	{
 		m->px -= 10;
 		m->move++;
 		ft_printf("%d ", m->move);
-	}
-	if (m->move_right == 1)
-	{
-		m->px += 10;
-		m->move++;
-		ft_printf("%d ", m->move);
-	}
-	if (m->move_low == 1)
-	{
-		m->py += 10;
-		m->move++;
-		ft_printf("%d ", m->move);
-	}
-	if (m->move_up == 1)
-	{
 		m->py -= 10;
 		m->move++;
 		ft_printf("%d ", m->move);
 	}
+	else if (m->move_low == 1 && m->move_left == 1 && m->split[(m->py / 50) + 1][(m->px / 50)] != '1')
+	{
+		m->px -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+		m->py += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+	}
+	else if (m->move_up == 1 && m->move_right == 1)
+	{
+		m->px += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+		m->py -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+	}
+	else if (m->move_low == 1 && m->move_right == 1)
+	{
+		m->px += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+		m->py += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+	}
+	else
+	{
+		if (m->move_left == 1 \
+			&& m->split[(m->py / 50) + 1][(m->px / 50)] != '1')
+		{
+			m->px -= 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_right == 1)
+		{
+			m->px += 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_low == 1)
+		{
+			m->py += 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_up == 1)
+		{
+			m->py -= 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+	}
+	if (m->move_up == 1 && m->move_left == 1 && m->split[(m->py / 50) + 1][(m->px / 50)] == '1')
+		return (4);
+	else if (m->move_low == 1 && m->move_left == 1 && m->split[(m->py / 50) + 1][(m->px / 50)] == '1')
+		return (5);
+	return (1);
 }
 
-void	ft_do_move7(t_mlx *m)
+int	ft_do_move7(t_mlx *m)
 {
-	if (m->move_left == 1)
-	{
-		m->px -= 10;
-		m->move++;
-		ft_printf("%d ", m->move);
-	}
-	if (m->move_right == 1 \
-		&& m->split[(m->py / 50) + 1][(m->px / 50) + 1] != '1')
+	if (m->move_up == 1 && m->move_right == 1 && m->split[(m->py / 50) + 1][(m->px / 50) + 1] != '1')
 	{
 		m->px += 10;
 		m->move++;
 		ft_printf("%d ", m->move);
-	}
-	if (m->move_low == 1)
-	{
-		m->py += 10;
-		m->move++;
-		ft_printf("%d ", m->move);
-	}
-	if (m->move_up == 1)
-	{
 		m->py -= 10;
 		m->move++;
 		ft_printf("%d ", m->move);
 	}
+	else if (m->move_low == 1 && m->move_right == 1 && m->split[(m->py / 50) + 1][(m->px / 50) + 1] != '1')
+	{
+		m->px += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+		m->py += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+	}
+	else if (m->move_up == 1 && m->move_left == 1)
+	{
+		m->px -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+		m->py -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+	}
+	else if (m->move_low == 1 && m->move_left == 1)
+	{
+		m->px -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+		m->py += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+	}
+	else
+	{
+		if (m->move_left == 1)
+		{
+			m->px -= 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_right == 1 \
+			&& m->split[(m->py / 50) + 1][(m->px / 50) + 1] != '1')
+		{
+			m->px += 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_low == 1)
+		{
+			m->py += 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_up == 1)
+		{
+			m->py -= 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+	}
+	if (m->move_up == 1 && m->move_right == 1 && m->split[(m->py / 50) + 1][(m->px / 50) + 1] == '1')
+		return (2);
+	else if (m->move_low == 1 && m->move_right == 1 && m->split[(m->py / 50) + 1][(m->px / 50 + 1)] == '1')
+		return (3);
+	return (1);
 }
 
-void	ft_do_move8(t_mlx *m)
+int	ft_do_move8(t_mlx *m)
 {
-	if (m->move_left == 1 \
-		&& m->split[(m->py / 50) + 1][(m->px / 50)] != '1')
-	{
-		m->px -= 10;
-		m->move++;
-		ft_printf("%d ", m->move);
-	}
-	if (m->move_right == 1)
+	if (m->move_up == 1 && m->move_right == 1 && m->split[(m->py / 50)][(m->px / 50) + 1] != '1')
 	{
 		m->px += 10;
 		m->move++;
 		ft_printf("%d ", m->move);
+		m->py -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
 	}
-	if (m->move_low == 1)
+	else if (m->move_low == 1 && m->move_right == 1)
 	{
+		m->px += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
 		m->py += 10;
 		m->move++;
 		ft_printf("%d ", m->move);
 	}
-	if (m->move_up == 1 && m->split[(m->py / 50)][(m->px / 50) + 1] != '1')
+	else if (m->move_up == 1 && m->move_left == 1 && m->split[(m->py / 50)][(m->px / 50)] != '1'
+			&& m->split[(m->py / 50)][(m->px / 50) + 1] != '1')
 	{
 		m->py -= 10;
 		m->move++;
 		ft_printf("%d ", m->move);
-	}	
+		m->px -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+	}
+	else if (m->move_low == 1 && m->move_left == 1 && m->split[(m->py / 50) + 1][(m->px / 50)] != '1')
+	{
+		m->px -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+		m->py += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+	}
+	else
+	{
+		if (m->move_left == 1 \
+			&& m->split[(m->py / 50) + 1][(m->px / 50)] != '1')
+		{
+			m->px -= 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_right == 1)
+		{
+			m->px += 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_low == 1)
+		{
+			m->py += 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_up == 1 && m->split[(m->py / 50)][(m->px / 50) + 1] != '1')
+		{
+			m->py -= 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+	}
+	if (m->move_up == 1 && m->move_left == 1 && m->split[(m->py / 50) + 1][(m->px / 50)] == '1')
+		return (4);
+	else if (m->move_low == 1 && m->move_left == 1 && m->split[(m->py / 50) + 1][(m->px / 50)] == '1')
+		return (5);
+	return (1);
 }
 
-void	ft_do_move9(t_mlx *m)
+int	ft_do_move9(t_mlx *m)
 {
-	if (m->move_left == 1 \
-		&& m->split[(m->py / 50) + 1][(m->px / 50)] != '1')
-	{
-		m->px -= 10;
-		m->move++;
-		ft_printf("%d ", m->move);
-	}
-	if (m->move_right == 1)
+	if (m->move_up == 1 && m->move_right == 1)
 	{
 		m->px += 10;
 		m->move++;
 		ft_printf("%d ", m->move);
-	}
-	if (m->move_low == 1)
-	{
-		m->py += 10;
-		m->move++;
-		ft_printf("%d ", m->move);
-	}
-	if (m->move_up == 1)
-	{
 		m->py -= 10;
 		m->move++;
 		ft_printf("%d ", m->move);
 	}
+	else if (m->move_low == 1 && m->move_right == 1)
+	{
+		m->px += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+		m->py += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+	}
+	else if (m->move_up == 1 && m->move_left == 1 && m->split[(m->py / 50) + 1][(m->px / 50)] != '1')
+	{
+		m->px -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+		m->py -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+	}
+	else if (m->move_low == 1 && m->move_left == 1 && m->split[(m->py / 50) + 1][(m->px / 50)] != '1')
+	{
+		m->px -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+		m->py += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+	}
+	else
+	{
+		if (m->move_left == 1 \
+			&& m->split[(m->py / 50) + 1][(m->px / 50)] != '1')
+		{
+			m->px -= 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_right == 1)
+		{
+			m->px += 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_low == 1)
+		{
+			m->py += 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_up == 1)
+		{
+			m->py -= 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+	}
+	if (m->move_up == 1 && m->move_left == 1 && m->split[(m->py / 50) + 1][(m->px / 50)] == '1')
+		return (4);
+	else if (m->move_low == 1 && m->move_left == 1 && m->split[(m->py / 50) + 1][(m->px / 50)] == '1')
+		return (5);
+	return (1);
 }
 
 void	ft_do_move10(t_mlx *m)
 {
-	if (m->move_left == 1)
-	{
-		m->px -= 10;
-		m->move++;
-		ft_printf("%d ", m->move);
-	}
-	if (m->move_right == 1)
+	if (m->move_up == 1 && m->move_right == 1 && m->split[(m->py / 50)][(m->px / 50)] != '1'
+		&& m->split[(m->py / 50)][(m->px / 50) + 1] != '1')
 	{
 		m->px += 10;
 		m->move++;
 		ft_printf("%d ", m->move);
+		m->py -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
 	}
-	if (m->move_low == 1)
+	else if (m->move_low == 1 && m->move_right == 1)
 	{
+		m->px += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
 		m->py += 10;
 		m->move++;
 		ft_printf("%d ", m->move);
 	}
-	if (m->move_up == 1 && m->split[(m->py / 50)][(m->px / 50)] != '1' \
-		&& m->split[(m->py / 50)][(m->px / 50) + 1] != '1')
+	else if (m->move_up == 1 && m->move_left == 1 && m->split[(m->py / 50)][(m->px / 50)] != '1'
+			&& m->split[(m->py / 50)][(m->px / 50) + 1] != '1')
 	{
+		m->px -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
 		m->py -= 10;
 		m->move++;
 		ft_printf("%d ", m->move);
+	}
+	else if (m->move_low == 1 && m->move_left == 1)
+	{
+		m->px -= 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+		m->py += 10;
+		m->move++;
+		ft_printf("%d ", m->move);
+	}
+	else
+	{
+		if (m->move_left == 1)
+		{
+			m->px -= 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_right == 1)
+		{
+			m->px += 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_low == 1)
+		{
+			m->py += 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
+		else if (m->move_up == 1 && m->split[(m->py / 50)][(m->px / 50)] != '1' \
+			&& m->split[(m->py / 50)][(m->px / 50) + 1] != '1')
+		{
+			m->py -= 10;
+			m->move++;
+			ft_printf("%d ", m->move);
+		}
 	}
 }
