@@ -6,7 +6,7 @@
 /*   By: hel-ouar <hel-ouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 21:32:37 by hel-ouar          #+#    #+#             */
-/*   Updated: 2023/01/05 14:34:08 by hel-ouar         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:17:54 by hel-ouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,27 @@ void	ft_initial(t_mlx *m)
 	m->move_right = 0;
 	m->move_low = 0;
 	m->move_up = 0;
+}
+
+void	ft_init_void_img(t_mlx *m)
+{
+	m->character = NULL;
+	m->left = NULL;
+	m->right = NULL;
+	m->back = NULL;
+	m->bubble = NULL;
+	m->victory = NULL;
+	m->character2 = NULL;
+	m->walk_back = NULL;
+	m->walk_back2 = NULL;
+	m->walk_front = NULL;
+	m->walk_front2 = NULL;
+	m->walk_left = NULL;
+	m->walk_left2 = NULL;
+	m->walk_right = NULL;
+	m->walk_right2 = NULL;
+	m->water = NULL;
+	m->floor = NULL;
+	m->item = NULL;
+	m->exit = NULL;
 }

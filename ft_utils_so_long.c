@@ -6,7 +6,7 @@
 /*   By: hel-ouar <hel-ouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 10:33:00 by hel-ouar          #+#    #+#             */
-/*   Updated: 2023/01/09 15:55:37 by hel-ouar         ###   ########.fr       */
+/*   Updated: 2023/01/10 17:10:51 by hel-ouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	render_next_frame(t_mlx *m)
 	mlx_put_image_to_window(m->mlx, m->mlx_win, m->exit, m->ex, m->ey);
 	if (m->count.c == m->count.cpt && ft_eat_box_exit(m) == 1)
 	{
-		mlx_string_put(m->mlx, m->mlx_win, m->largeur * 20, \
+		mlx_string_put(m->mlx, m->mlx_win, m->width * 20, \
 		25, 10000, "FELICITATIONS VOUS AVEZ FINI LE JEU !!!!!");
 		m->character = m->character2;
 		mlx_put_image_to_window(m->mlx, m->mlx_win, m->bubble,

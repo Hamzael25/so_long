@@ -6,7 +6,7 @@
 /*   By: hel-ouar <hel-ouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 12:45:52 by hel-ouar          #+#    #+#             */
-/*   Updated: 2023/01/09 17:02:36 by hel-ouar         ###   ########.fr       */
+/*   Updated: 2023/01/10 17:10:59 by hel-ouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ typedef struct s_mlx
 	int		move_right;
 	int		move_left;
 	int		move;
-	int		hauteur;
-	int		largeur;
+	int		hight;
+	int		width;
 	char	*affich_move;
 	int		bool;
 }				t_mlx;
@@ -94,9 +94,13 @@ int		find_exit(char **tab, t_s *s, int x, int y);
 
 int		check_exit(char **tab, t_s *s, int i, int j);
 
-void	ft_mlx(t_mlx *m);
+int		ft_mlx(t_mlx *m);
 
 void	ft_initial(t_mlx *m);
+
+void	ft_init_void_img(t_mlx *m);
+
+int		img_is_null(t_mlx *m);
 
 void	ft_position(t_mlx *m);
 

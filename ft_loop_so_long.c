@@ -6,7 +6,7 @@
 /*   By: hel-ouar <hel-ouar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 21:12:25 by hel-ouar          #+#    #+#             */
-/*   Updated: 2023/01/09 18:39:32 by hel-ouar         ###   ########.fr       */
+/*   Updated: 2023/01/10 17:13:46 by hel-ouar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,36 @@ int	ft_loop_hook(t_mlx *m)
 	return (0);
 }
 
-void	ft_mlx(t_mlx *m)
+int	img_is_null(t_mlx *m)
+{
+	if (m->character == NULL || m->left == NULL || m->walk_front2 == NULL
+		|| m->back == NULL || m->bubble == NULL || m->victory == NULL
+		|| m->character2 == NULL || m->walk_back == NULL || m->exit == NULL
+		|| m->walk_back2 == NULL || m->walk_front == NULL || m->item == NULL
+		|| m->walk_left == NULL || m->walk_left2 == NULL || m->water == NULL
+		|| m->walk_right == NULL || m->walk_right2 == NULL || m->right == NULL
+		|| m->floor == NULL)
+		return (0);
+	return (1);
+}
+
+int	ft_mlx(t_mlx *m)
 {
 	ft_initial(m);
 	ft_load_images_1(m);
 	ft_load_images_2(m);
-	ft_position(m);
-	m->hauteur = m->i;
-	m->largeur = m->j;
-	if (m->hauteur * 50 <= 1550 && m->largeur * 50 <= 2850)
+	if (img_is_null(m) == 0)
 	{
-		m->mlx_win = mlx_new_window(m->mlx, m->largeur * 50, \
-		m->hauteur * 50, "Bienvenue dans mon jeu incroyable");
+		ft_free_tab(m->split);
+		return (ft_printf("Error\nLes images !!!"));
+	}
+	ft_position(m);
+	m->hight = m->i;
+	m->width = m->j;
+	if (m->hight * 50 <= 1550 && m->width * 50 <= 2850)
+	{
+		m->mlx_win = mlx_new_window(m->mlx, m->width * 50, \
+		m->hight * 50, "Bienvenue dans mon jeu incroyable");
 		mlx_loop_hook(m->mlx, ft_loop_hook, m);
 		mlx_hook(m->mlx_win, 2, 0, ft_keypress, m);
 		mlx_hook(m->mlx_win, 3, 0, ft_release, m);
@@ -56,4 +74,5 @@ void	ft_mlx(t_mlx *m)
 	}
 	else
 		ft_printf("erreur : la map depasse la taille de l'ecran !");
+	return (1);
 }
